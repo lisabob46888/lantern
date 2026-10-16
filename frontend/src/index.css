@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark palette = the prototype's. Values are "r g b" so Tailwind can add alpha. */
+:root, :root[data-theme='dark'] {
+  color-scheme: dark;
+  --page: 0 0 0;
+  --ink: 232 230 225;
+  --muted: 176 179 183;
+  --dim: 150 154 159;
+  --faint: 122 126 131;
+  --panel: 11 11 12;
+  --bar: 20 20 22;
+  --strip: 6 6 7;
+  --line: 38 41 45;
+  --line2: 29 32 36;
+  --edge: 58 62 67;
+  --hover: 26 29 32;
+  --chip: 29 32 36;
+  --amber: oklch(0.78 0.16 70);
+  --sky: oklch(0.74 0.12 225);
+  --green: oklch(0.72 0.17 150);
+  --red: oklch(0.66 0.21 25);
+  --shadow: rgba(0, 0, 0, .6);
+}
+
+/* Light palette: warm paper background, same accents darkened for contrast on white. */
+:root[data-theme='light'] {
+  color-scheme: light;
+  --page: 244 243 239;
+  --ink: 24 26 29;
+  --muted: 72 76 82;
+  --dim: 92 96 102;
+  --faint: 118 122 128;
+  --panel: 255 255 255;
+  --bar: 236 234 229;
+  --strip: 248 247 244;
+  --line: 218 215 208;
+  --line2: 232 229 223;
+  --edge: 196 193 186;
+  --hover: 243 241 236;
+  --chip: 230 228 222;
+  --amber: oklch(0.58 0.15 60);
+  --sky: oklch(0.5 0.13 240);
+  --green: oklch(0.52 0.15 150);
+  --red: oklch(0.55 0.21 27);
+  --shadow: rgba(0, 0, 0, .15);
+}
+
+html, body, #root { margin: 0; height: 100%; background: rgb(var(--page)); color: rgb(var(--ink)); -webkit-font-smoothing: antialiased; }
+html { font-size: var(--base-size, 16px); }
+body { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; line-height: 1.45; }
+a { color: var(--sky); }
+button, input, select { font-family: inherit; font-size: inherit; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: rgb(var(--edge)); border-radius: 5px; }
+
+/* Horizontal scrollers (tab bars) that should not show a scrollbar thumb. */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
